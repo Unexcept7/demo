@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <settings>
+<!--    在全局范围内启用或禁用缓存配置，任何映射器在此配置下。value true|false 默认true-->
+    <setting name="cacheEnabled" value="false"/>
+<!--    在全局范围内启用或禁用延迟加载。禁用时所有相关联的都将热加载。value true|false默认true-->
+    <setting name="lazyLoadingEnabled" value="false"/>
+<!--    启动时,有延迟加载属性的对象将被完全加载后调用懒惰的任何属性。否则，每一个属性是按需加载。value true|false默认true-->
+    <setting name="aggressiveLazyLoading" value="false"/>
+<!--    允许或不允许从一个单独的语句（需要兼容的驱动程序）要返回多个结果集。value true|false默认true-->
+    <setting name="multipleResultSetsEnabled" value="false"/>
+<!--    使用列标签，而不是列名。在这方面，不同的驱动有不同的行为。参考驱动文档或测试两种方法来决定你的驱动程序的行为如何value true|false默认true-->
+    <setting name="userColumnLabel" value="false"/>
+<!--    允许JDBC支持生成的密钥。兼容的驱动程序是必需的。此设置强制生成的键被使用，如果设置为true，一些驱动会不兼容性，但仍然可以工作。value true|false默认false-->
+    <setting name="useGeneratedKeys" value="true"/>
+
+<!--    从经典的数据库列明A_COLUMN启用自动映射到骆驼标识的经典的java属性名aColumn,value true|false默认true-->
+    <setting name="mapUnderscoreToCamelCase" value="false"/>
+  </settings>
+</configuration>

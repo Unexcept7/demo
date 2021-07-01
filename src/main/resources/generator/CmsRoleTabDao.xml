@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.CmsRoleTabDao">
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.CmsRoleTab">
+    <id column="cms_role_id" jdbcType="INTEGER" property="cms_role_id" />
+    <result column="cms_role_name" jdbcType="VARCHAR" property="cms_role_name" />
+    <result column="cms_role_create" jdbcType="VARCHAR" property="cms_role_create" />
+    <result column="cms_role_createtime" jdbcType="TIMESTAMP" property="cms_role_createtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cms_role_id, cms_role_name, cms_role_create, cms_role_createtime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from cms_role_tab
+    where cms_role_id = #{cms_role_id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cms_role_tab
+    where cms_role_id = #{cms_role_id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="cms_role_id" keyProperty="cms_role_id" parameterType="com.example.demo.entity.CmsRoleTab" useGeneratedKeys="true">
+    insert into cms_role_tab (cms_role_name, cms_role_create, cms_role_createtime
+      )
+    values (#{cms_role_name,jdbcType=VARCHAR}, #{cms_role_create,jdbcType=VARCHAR}, #{cms_role_createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="cms_role_id" keyProperty="cms_role_id" parameterType="com.example.demo.entity.CmsRoleTab" useGeneratedKeys="true">
+    insert into cms_role_tab
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cms_role_name != null">
+        cms_role_name,
+      </if>
+      <if test="cms_role_create != null">
+        cms_role_create,
+      </if>
+      <if test="cms_role_createtime != null">
+        cms_role_createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cms_role_name != null">
+        #{cms_role_name,jdbcType=VARCHAR},
+      </if>
+      <if test="cms_role_create != null">
+        #{cms_role_create,jdbcType=VARCHAR},
+      </if>
+      <if test="cms_role_createtime != null">
+        #{cms_role_createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.CmsRoleTab">
+    update cms_role_tab
+    <set>
+      <if test="cms_role_name != null">
+        cms_role_name = #{cms_role_name,jdbcType=VARCHAR},
+      </if>
+      <if test="cms_role_create != null">
+        cms_role_create = #{cms_role_create,jdbcType=VARCHAR},
+      </if>
+      <if test="cms_role_createtime != null">
+        cms_role_createtime = #{cms_role_createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where cms_role_id = #{cms_role_id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.CmsRoleTab">
+    update cms_role_tab
+    set cms_role_name = #{cms_role_name,jdbcType=VARCHAR},
+      cms_role_create = #{cms_role_create,jdbcType=VARCHAR},
+      cms_role_createtime = #{cms_role_createtime,jdbcType=TIMESTAMP}
+    where cms_role_id = #{cms_role_id,jdbcType=INTEGER}
+  </update>
+</mapper>
